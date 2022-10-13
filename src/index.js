@@ -1,3 +1,5 @@
+import './styles/stylesheet.css';
+
 import Main from './Components/Main'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
