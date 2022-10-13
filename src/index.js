@@ -1,13 +1,12 @@
+import Main from './Components/Main'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import reportWebVitals from './reportWebVitals';
 
-const element = React.createElement('h1', null, "Hello World");
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {element}
+    <Main />
   </React.StrictMode>
 );
 
