@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import AddPhoto from './AddPhoto';
 import PhotoWall from './PhotoWall';
@@ -7,7 +8,7 @@ import Title from './Title';
 const Main = () => {
 
     const [posts, setPosts] = useState([])
-    const [screen, setScreen] = useState('photos')
+    const navigate = useNavigate()
 
     useEffect(() => {
         const data = simulateFetchFromDatabase();
@@ -16,10 +17,6 @@ const Main = () => {
 
     const removePhoto = (postRemoved) => {
         setPosts(prevState => prevState.filter(post => post !== postRemoved))
-    }
-
-    const navigate = () => {
-        setScreen('addPhoto')
     }
 
     const simulateFetchFromDatabase = () => {
@@ -39,16 +36,28 @@ const Main = () => {
         }]
     }
 
+    const addPhoto = (postSubmitted) => {
+        setPosts(prevPost => {
+            return prevPost.concat([postSubmitted])
+        })
+    }
+
+    const handleAddPhoto = (addedPost) => {
+        addPhoto(addedPost);
+        navigate('/')
+    }
 
     return (
-        <>
-            {screen === 'photos' && (<>
-                <Title title="Photowall" />
-                <PhotoWall posts={posts} onRemovePhoto={removePhoto} onNavigate={navigate} />
-            </>)}
 
-            {screen === 'addPhoto' && <AddPhoto />}
-        </>
+        <Routes>
+            <Route exact path='/' element={
+                <>
+                    <Title title="Photowall" />
+                    <PhotoWall posts={posts} onRemovePhoto={removePhoto} />
+                </>
+            } />
+            <Route path='/AddPhoto' element={<AddPhoto onAddPhoto={handleAddPhoto} />} />
+        </Routes>
     )
 }
 

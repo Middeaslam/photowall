@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Photo from './Photo';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -5,10 +6,12 @@ import React from 'react';
 const PhotoWall = (props) => {
     return (
         <>
-            <a onClick={props.onNavigate} href='#AddPhoto'>Click me</a>
-            {/* <button className='addIcon' onClick={props.onNavigate}>Add Photo</button> */}
+            <Link to='/AddPhoto' className='addIcon'></Link>
             <div className='photoGrid'>
-                {props.posts.map(post => <Photo key={post.id} post={post} onRemovePhoto={props.onRemovePhoto} />)}
+                {props.posts.sort(function (x, y) {
+                    return y.id - x.id
+                })
+                    .map(post => <Photo key={post.id} post={post} onRemovePhoto={props.onRemovePhoto} />)}
             </div>
         </>
     )
@@ -17,7 +20,7 @@ const PhotoWall = (props) => {
 PhotoWall.prototypes = {
     posts: PropTypes.array.isRequired,
     onRemovePhoto: PropTypes.func.isRequired,
-    onNavigate: PropTypes.func.isRequired
+
 }
 
 export default PhotoWall
