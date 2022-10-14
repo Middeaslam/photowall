@@ -4,7 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import Main from './Components/Main'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createStore } from 'redux';
 import reportWebVitals from './reportWebVitals';
+import rootReducer from './redux/reducer';
+
+const store = createStore(rootReducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
