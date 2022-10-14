@@ -43,11 +43,20 @@ h1 {
   justify-content: center;
 }
 
-.remove-button {
+/* .remove-button {
   flex-basis: 48%;
   color: red;
   font-size: 15px;
   border: 2px solid #f2f2f2;
   line-height: 2;
   padding: 5px;
+} */
+
+.addIcon {
+  margin: 20px auto;
+  display: table;
+  /* padding: 40px; */
+  /* background: url('../../public/assets/icons8-plus.svg') center no-repeat;
+  background-size: contain;
+  border: none; */
 }
