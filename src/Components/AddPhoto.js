@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 
-const AddPhoto = (props) => {
+import { addPost } from '../redux/actions'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+const AddPhoto = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [newPhoto, setNewPhoto] = useState({
         id: '',
@@ -15,7 +22,8 @@ const AddPhoto = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         if (newPhoto.imageLink && newPhoto.description) {
-            props.onAddPhoto(newPhoto)
+            dispatch(addPost(newPhoto))
+            navigate('/')
         }
 
     }

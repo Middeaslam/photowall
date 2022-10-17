@@ -1,13 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Photo from './Photo';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
 const PhotoWall = () => {
-
-
-
     const posts = useSelector((state) => state.posts)
     return (
         <>
@@ -22,8 +18,6 @@ const PhotoWall = () => {
     )
 }
 
-PhotoWall.prototypes = {
-    posts: PropTypes.array.isRequired,
-}
+
 
 export default PhotoWall

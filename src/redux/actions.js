@@ -4,4 +4,8 @@ export const removePosts = (index) => ({
     payload: index
 })
 
-// export const add
+
+export const addPost = (post) => ({
+    type: 'ADD_POST',
+    payload: post
+})

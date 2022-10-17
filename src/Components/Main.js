@@ -1,46 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, } from 'react-router-dom';
 
 import AddPhoto from './AddPhoto';
 import PhotoWall from './PhotoWall';
+import React from 'react';
+import Single from './Single';
 import Title from './Title';
 
 const Main = () => {
-
-    // const [posts, setPosts] = useState([])
-    const navigate = useNavigate()
-
-
-
-    useEffect(() => {
-        // const data = simulateFetchFromDatabase();
-        // setPosts(data)
-    }, [])
-
-
-    const addCustomer = () => {
-
-    }
-
-    // const removePhoto = (postRemoved) => {
-    //     setPosts(prevState => prevState.filter(post => post !== postRemoved))
-    // }
-
-
-
-    // const addPhoto = (postSubmitted) => {
-    //     setPosts(prevPost => {
-    //         return prevPost.concat([postSubmitted])
-    //     })
-    // }
-
-    // const handleAddPhoto = (addedPost) => {
-    //     addPhoto(addedPost);
-    //     navigate('/')
-    // }
-
     return (
-
         <Routes>
             <Route exact path='/' element={
                 <>
@@ -48,7 +15,8 @@ const Main = () => {
                     <PhotoWall />
                 </>
             } />
-            {/* <Route path='/AddPhoto' element={<AddPhoto />} /> */}
+            <Route path='/AddPhoto' element={<AddPhoto />} />
+            <Route path='/single/:id' element={<Single />} />
         </Routes>
     )
 }
