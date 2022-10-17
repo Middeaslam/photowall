@@ -1,21 +1,36 @@
 import './styles/stylesheet.css';
 
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+
 import { BrowserRouter } from 'react-router-dom';
 import Main from './Components/Main'
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createStore } from 'redux';
+import { composeWithDevTools } from '@redux-devtools/extension';
+import postReducer from './redux/reducer';
 import reportWebVitals from './reportWebVitals';
-import rootReducer from './redux/reducer';
+import thunk from 'redux-thunk'
 
-const store = createStore(rootReducer)
+const composeEnhancers = composeWithDevTools({
+  trace: true,
+  traceLimit: 25
+})
+
+const rootReducer = combineReducers({
+  posts: postReducer
+})
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Main />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
