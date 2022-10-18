@@ -16,7 +16,7 @@ const AddPhoto = () => {
     })
 
     const handleChange = (e) => {
-        setNewPhoto({ ...newPhoto, [e.target.name]: e.target.value, id: Number(new Date()) })
+        setNewPhoto({ ...newPhoto, [e.target.name]: e.target.value, id: Number(new Date()).toString() })
     }
 
     const handleSubmit = (event) => {

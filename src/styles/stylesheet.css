@@ -123,6 +123,15 @@ button {
   padding: 5px;
 }
 
+.button {
+  flex-basis: 48%;
+  color: red;
+  font-size: 15px;
+  border: 2px solid #f2f2f2;
+  line-height: 2;
+  padding: 5px;
+}
+
 .addIcon {
   margin: 20px auto;
   display: table;
@@ -187,4 +196,15 @@ button:hover {
   align-items: center;
   justify-content: center;
   font-size: 28pt;
+}
+
+.speech-bubble {
+  background: url('https://d30y9cdsu7xlg0.cloudfront.net/png/51904-200.png')
+    center no-repeat;
+  background-size: contain;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  border: none;
+  position: relative;
 }
