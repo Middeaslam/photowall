@@ -7,6 +7,7 @@ import Single from './Single';
 import Title from './Title';
 
 const Main = () => {
+    console.log(process.env.REACT_APP_API_KEY);
     return (
         <Routes>
             <Route exact path='/' element={
